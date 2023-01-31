@@ -1,0 +1,3 @@
+name: uvisuals-payments
+version: '${project.version}'
+main: co.uvisuals.payments.PaymentPlugin

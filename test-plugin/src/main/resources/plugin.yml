@@ -1,0 +1,6 @@
+name: test
+version: '${project.version}'
+main: co.uvisuals.test.TestPlugin
+
+depend:
+  - uvisuals-payments
