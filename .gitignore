@@ -1,6 +1,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/java,maven,jetbrains,jetbrains+iml,jetbrains+all
 # Edit at https://www.toptal.com/developers/gitignore?templates=java,maven,jetbrains,jetbrains+iml,jetbrains+all
 
+# remove test-plugin directory
+test-plugin/
+
 ### Java ###
 # Compiled class file
 *.class

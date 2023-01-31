@@ -12,7 +12,7 @@
     <modules>
         <module>plugin</module>
         <module>api</module>
-        <module>test-plugin</module>
+        <!-- <module>test-plugin</module> -->
     </modules>
 
     <properties>
