@@ -7,7 +7,7 @@ package co.uvisuals.payments.config;
 
 public enum DesignateType {
 
-  COMMAND,
-  EVENT
+    COMMAND,
+    EVENT
 
 }

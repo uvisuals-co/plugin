@@ -1,6 +1,5 @@
 package co.uvisuals.payments;
 
-import lombok.Getter;
 import org.bukkit.event.Cancellable;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
@@ -12,32 +11,34 @@ import org.bukkit.event.HandlerList;
 
 public class PaymentDesignateEvent extends Event implements Cancellable {
 
-  @Getter private final Payment payment;
+    private static final HandlerList handlers = new HandlerList();
+    private final Payment payment;
+    private boolean cancelled;
 
-  public PaymentDesignateEvent(Payment payment) {
-    this.payment = payment;
-  }
+    public PaymentDesignateEvent(Payment payment) {
+        this.payment = payment;
+    }
 
-  private static final HandlerList handlers = new HandlerList();
+    public static HandlerList getHandlerList() {
+        return handlers;
+    }
 
-  private boolean cancelled;
+    @Override
+    public boolean isCancelled() {
+        return cancelled;
+    }
 
-  @Override
-  public boolean isCancelled() {
-    return cancelled;
-  }
+    @Override
+    public void setCancelled(boolean b) {
+        cancelled = b;
+    }
 
-  @Override
-  public void setCancelled(boolean b) {
-    cancelled = b;
-  }
+    @Override
+    public HandlerList getHandlers() {
+        return handlers;
+    }
 
-  @Override
-  public HandlerList getHandlers() {
-    return handlers;
-  }
-
-  public static HandlerList getHandlerList() {
-    return handlers;
-  }
+    public Payment getPayment() {
+        return payment;
+    }
 }
