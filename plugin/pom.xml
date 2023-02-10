@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
@@ -19,6 +19,7 @@
 
     <build>
         <defaultGoal>install</defaultGoal>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -32,6 +33,37 @@
                         </goals>
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <relocations>
+                                <relocation>
+                                    <pattern>okhttp3</pattern>
+                                    <shadedPattern>co.uvisuals.payments.libs.okhttp3</shadedPattern>
+                                    <includes>
+                                        <include>**</include>
+                                    </includes>
+                                </relocation>
+                                <relocation>
+                                    <pattern>kotlin</pattern>
+                                    <shadedPattern>co.uvisuals.payments.libs.kotlin</shadedPattern>
+                                    <includes>
+                                        <include>**</include>
+                                    </includes>
+                                </relocation>
+                                <relocation>
+                                    <pattern>okio</pattern>
+                                    <shadedPattern>co.uvisuals.payments.libs.okio</shadedPattern>
+                                    <includes>
+                                        <include>**</include>
+                                    </includes>
+                                </relocation>
+                                <relocation>
+                                    <pattern>eu.dkcode.configuration</pattern>
+                                    <shadedPattern>co.uvisuals.payments.libs.configuration</shadedPattern>
+                                    <includes>
+                                        <include>**</include>
+                                    </includes>
+                                </relocation>
+                            </relocations>
+
                         </configuration>
                     </execution>
                 </executions>
@@ -50,9 +82,15 @@
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
             </resource>
+
         </resources>
     </build>
-
+<!--    <repositories>-->
+<!--        <repository>-->
+<!--            <id>jitpack.io</id>-->
+<!--            <url>https://jitpack.io</url>-->
+<!--        </repository>-->
+<!--    </repositories>-->
     <dependencies>
         <dependency>
             <groupId>org.spigotmc</groupId>
